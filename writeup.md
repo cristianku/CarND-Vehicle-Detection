@@ -79,7 +79,7 @@ of car , and not only the entire car\*\* as a car.\*\*
 ### Sliding windows.
 
 Now, having a classifier that tells if in a portion of image there is or not a
-car, we need do slide windows of **different dimensions**  on the image:
+car, we need do slide windows of **different dimensions** on the image:
 
  
 
@@ -153,20 +153,90 @@ On the paper the accuracy is good, BUT ONLY ON THE PAPER:
 
 Mainly because it has overfitted the trainin set, and now is able to recognize
 only window containing the entire car, and not able to recognize part of the
-car.\*\* One solution can be to augment the training set, introducing shifs.
-zoom, little rotations, and so on...but I haven’t done it\*\*
+car.**\*\* One solution can be to augment the training set, introducing shifs.
+zoom, little rotations, and so on...but I haven’t done it\*\***
 
 ![](write_md_images/neural%20network%20copy.png)
 
-### Discussion
+ 
 
-#### 1. Briefly discuss any problems / issues you faced in your implementation of this project. Where will your pipeline likely fail? What could you do to make it more robust?
+**Test images with the 3 different classifier:**
+------------------------------------------------
 
  
 
-I have experimented different classifier.
+**CNN image 1**
 
-I have expected the CNN to be the best, but sometimes happens something like
+![](output_images_cnn/test1.jpg)
+
+**CNN image 2**
+
+![](output_images_cnn/test2.jpg)
+
+**CNN image 3**
+
+![](output_images_cnn/test3.jpg)
+
+**CNN image 4**
+
+![](output_images_cnn/test4.jpg)
+
+**CNN image 5**
+
+![](output_images_cnn/test5.jpg)
+
+ 
+
+**SVM image1**
+
+![](output_images_svm/test1.jpg)
+
+**SVM image2**
+
+![](output_images_svm/test2.jpg)
+
+**SVM image3**
+
+![](output_images_svm/test3.jpg)
+
+**SVM image4**
+
+![](output_images_svm/test4.jpg)
+
+**SVM image5**
+
+![](output_images_svm/test5.jpg)
+
+ 
+
+**HOG+ NN image1**
+
+![](output_images_hog_nn/test1.jpg)
+
+**HOG+ NN image2**
+
+![](output_images_hog_nn/test2.jpg)
+
+**HOG+ NN image3**
+
+![](output_images_hog_nn/test3.jpg)
+
+**HOG+ NN image4**
+
+![](output_images_hog_nn/test4.jpg)
+
+**HOG+ NN image5**
+
+![](output_images_hog_nn/test5.jpg)
+
+ 
+
+**Discussion**
+--------------
+
+I have experimented different classifiers.
+
+I have expected the **CNN** to be the best, but sometimes happens something like
 this:
 
 ![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.00.00.png)

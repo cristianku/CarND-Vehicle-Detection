@@ -47,7 +47,16 @@ database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
 
 ### **Folders list:**
 
-**output_images** images obtained applying the Pipeline on single test images
+**output_images_cnn** images obtained applying the **Pipeline and CNN classifier
+**on single test images
+
+**output_images_hog_nn** images obtained applying the **Pipeline and Hog+ Neural
+Network classifier **on single test images
+
+**output_images_svm** images obtained applying the **Pipeline and CNN classifier
+**on single test images
+
+ 
 
 **test_images** some test images provided by Udacity
 
@@ -55,7 +64,7 @@ database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
 
 **test_images_project** test images extracted from project_video_output.mp4
 
-**train_data**  car and non-car training images
+**train_data** car and non-car training images
 
 **write_md_images** images for the writeup.md
 
@@ -65,15 +74,22 @@ database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
 
 **car_detection_classifier.pkl** SVM classifier saved to disk
 
-**keras_model.h5**  Neural Network saved to disk
+**keras_model.h5** Neural Network saved to disk
 
 **kerasCNN_model.h5** Convolutional Neural Network saved to disk
 
-**cars_detection.ipynb**  iPython Notebook containing the program
+**cars_detection.ipynb** iPython Notebook containing the program
 
  
 
-**project_video_output.mp4** the processed video
+**project_video_output_cnn.mp4** the processed video ( **CNN** as classifier )
+
+**project_video_output_hog_nn.mp4** the processed video using Neural Network (
+**Hog** as features extractor )
+
+**project_video_output_svm.mp4** the processed video using **SVM** classifier
+
+ 
 
 **project_video.mp4** project video provided by Udacity
 
@@ -81,10 +97,10 @@ database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
 
  
 
-**writeup.md**  containing the explanation of the pipeline used
+**writeup.md** containing the explanation of the pipeline used
 
-**X_scaler.pkl**  the scaler used for the HOG features ( also color and spatial
-) scaling.
+**X_scaler.pkl** the scaler used for the HOG features ( also color and spatial )
+scaling.
 
  
 
