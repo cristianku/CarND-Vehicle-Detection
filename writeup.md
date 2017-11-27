@@ -29,6 +29,14 @@
 
  
 
+### **Image masking**
+
+Here what I am trying to avoid is to detect cars on the other part of the road :
+
+![](write_md_images/image masking.png)
+
+![](write_md_images/discard out of area of interests.png)
+
 ### **Features extraction**
 
 **( both training data and sliding windows—\>see below )**
@@ -194,9 +202,10 @@ I have implemented two further techniques:
  
 
 2 - calculating the proportions of the width/height and discard all the boxes
-that are not likely to contain a car
+that are not likely to contain a car **( for example too small for a certain
+portion of the screen )**
 
-![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.38.25%20copy.png)
+![](write_md_images/discard rules.png)
 
 3- Choosing the best Feature extractor / classifier —\> **Convolutional Neural
 Network**
@@ -317,8 +326,8 @@ a car.**
 
 I have experimented different classifiers.
 
-I have expected the **CNN** to be the best, but sometimes happens something like
-this:
+I have expected the **CNN** to be the best, both performance and accuracy,  but
+sometimes happens something like this:
 
 ![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.00.00.png)
 
@@ -332,4 +341,18 @@ heatmap is making a box a little bit **too bigger**
 
 I have experimented different thresholds in the heatmap, and I have ended
 calculating the average of the non-zero elements , and moltiplying this result
-for 0.7
+for a factor ( each classifier has a different “tuned factor” )
+
+ 
+
+SOmething that can be also further better implemented is the discard routine,
+where i have tried to defined some basics rule to discard boxes that are
+unlikely to contain cars.
+
+ 
+
+Could be also a good idea to mask the image to “cut a region of interest” same
+as I have done for the lane line. Here obiously there is the problem to identify
+the end of the asphalt both on left and right side, because in the lane line
+finding region masking we had just to mask the region in front of the center
+camera.
