@@ -6,7 +6,15 @@ Vehicle Detection
 In this project, your goal is to write a software pipeline to detect vehicles in
 a video
 
-**project_video_output.mp4** is the output of the project.
+Project output:
+
+-   **project_video_output_cnn.mp4 ** using Conv Net
+
+-   **project_video_output_hog_nn.mp4** using Neural Network
+
+-   **project_video_output_svm.mp4** using Support Vector Machine
+
+-    
 
 Check also the detailed **writeup.md** of the project.
 
@@ -47,14 +55,14 @@ database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
 
 ### **Folders list:**
 
-**output_images_cnn** images obtained applying the **Pipeline and CNN classifier
-**on single test images
+**output_images_cnn** images obtained applying the **Pipeline and CNN
+classifier** on single test images
 
 **output_images_hog_nn** images obtained applying the **Pipeline and Hog+ Neural
-Network classifier **on single test images
+Network classifier** on single test images
 
-**output_images_svm** images obtained applying the **Pipeline and CNN classifier
-**on single test images
+**output_images_svm** images obtained applying the **Pipeline and CNN
+classifier** on single test images
 
  
 

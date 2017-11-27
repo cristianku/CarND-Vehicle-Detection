@@ -29,7 +29,49 @@
 
  
 
-### **My implementation**
+### **Features extraction**
+
+**( both training data and sliding windows—\>see below )**
+
+I have used the **Color space** = **YCrCb**
+
+![](write_md_images/color%20space.png)
+
+-   Histogram of oriented gradients ( Based on Soebel magnitude and direction )
+    with Pixel per cell =8 and cell_per_block , orientations = 9. I did
+    different experiments and it turns out to be the best combination.
+
+    And the Color space **YCrCb** seems to **differentiate better the 3 image
+    layers**
+
+    it adds more features differentations:
+
+     
+
+![](write_md_images/hog%20features.png)
+
+ 
+
+-   Color Histogram
+
+![](write_md_images/color%20histograms.png)
+
+-   Binned color features
+
+ 
+
+I have built a class called **"image_features_extractor"** that combines all of
+these features extraction.
+
+![](write_md_images/extractor.png)
+
+ 
+
+ 
+
+**​**
+
+### **Classification**
 
 I used three different methodology in order to recognize the cars in the images.
 
@@ -52,27 +94,64 @@ cropped parts of cars.
 
 For example the yellow line on the asphalt sometimes get recognize as “car"
 
+**Accuracy**:
+
+![](write_md_images/svm%20classifier.png)
+
+**Predictions on the entire Training Data:**
+
+![](write_md_images/svm%20predictions.png)
+
  
 
 2 - **Neural Network**
 
 As before for the feature recognition, but for the classifier I have used a
-Neural Network.
+**Neural Network.**
 
-The performance in this case is very good , there are not false positive, **but
-the classifier precision is not as good as the Support Vector Machine**
+The performance in this case is very good , there are not false positive **( see
+below the comparison )**
 
  
 
-3 - Convolutional Neural Network
+**Accuracy**:
 
-The feature extraction is done in this case but the Network itself.
+![](write_md_images/svm%20accuracy.png)
+
+**Predictions on the entire Training Data:**
+
+![](write_md_images/neural%20network%20classifier%20predictions.png)
+
+ 
+
+3 - **Convolutional Neural Network**
+
+The feature extraction is done in this case but the Network itself —\> **No need
+of the previous Feature Extraction step**
 
 **Its much faster on the prediction , but obiously is very slow to train .**
 
+ 
+
+**THE CONVNET IS MUCH BETTER WITH FALSE POSITIVE HANDLING**
+
+ 
+
 The data are augmented with the Keras Image Processing library, using shifts,
 zooms, and this meant that this network is **much better** at recognizing parts
-of car , and not only the entire car\*\* as a car.\*\*
+of car , and not only the entire car **as a car.**
+
+ 
+
+**Accuracy**:
+
+![](write_md_images/ConvNet%20accuracy.png)
+
+**Predictions on the entire Training Data:**
+
+ 
+
+![](write_md_images/convnet%20predictions.png)
 
  
 
@@ -117,51 +196,47 @@ I have implemented two further techniques:
 2 - calculating the proportions of the width/height and discard all the boxes
 that are not likely to contain a car
 
- 
-
 ![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.38.25%20copy.png)
+
+3- Choosing the best Feature extractor / classifier —\> **Convolutional Neural
+Network**
+
+ 
 
 ### **Comparison between the 3 different classifier:**
 
-**Support Vector Machine**
+![](write_md_images/search%20windows%20comparison.png)
 
-Lot of false positive
-
-![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.12.56%20copy.png)
-
-But excluding the false positive the right boxes **are well centered:**
-
-![](write_md_images/classifier%20SVM.png)
+### Heatmap with SVM
 
  
 
-**Convolutional Neural Network**
+![](write_md_images/heatmap%20with%20svm.png)
 
-In the Conv Net there are no false positive, but the centering is not the best:
+### Heatmap with Neural Network
 
-![](write_md_images/CNN%20boxes%20copy.png)
+( one problem to note here is that the **Train Data has not been augmented**
+with shifts, zoom, etc , and the **Neural Network** is **overfitting** the
+**Train Data** where the car is centered into a Train Box (64x64).
 
-![](write_md_images/classifier%20CNN.png)
+And.. the sliding windows are **cutting portions of the image** that most of the
+time **doesnt contain the entire car**.
 
-**Neural Network**
+![](write_md_images/heatmap%20with%20neural%20network.png)
 
-This network is the worse.
+### Convolutional Neural Network
 
-On the paper the accuracy is good, BUT ONLY ON THE PAPER:
+As you can note the ConvNet is the best at recognizing the car and **portions of
+a car.**
 
-![](write_md_images/neural%20network%20accuracy%20copy.png)
-
-Mainly because it has overfitted the trainin set, and now is able to recognize
-only window containing the entire car, and not able to recognize part of the
-car.**\*\* One solution can be to augment the training set, introducing shifs.
-zoom, little rotations, and so on...but I haven’t done it\*\***
-
-![](write_md_images/neural%20network%20copy.png)
-
- 
+![](write_md_images/heatmap%20with%20convolutional%20neural%20network.png)
 
 **Test images with the 3 different classifier:**
 ------------------------------------------------
+
+ 
+
+### **CNN**
 
  
 
@@ -187,6 +262,8 @@ zoom, little rotations, and so on...but I haven’t done it\*\***
 
  
 
+### **SVM**
+
 **SVM image1**
 
 ![](output_images_svm/test1.jpg)
@@ -206,6 +283,10 @@ zoom, little rotations, and so on...but I haven’t done it\*\***
 **SVM image5**
 
 ![](output_images_svm/test5.jpg)
+
+ 
+
+### **HOG+ NEURAL NETWORK**
 
  
 
