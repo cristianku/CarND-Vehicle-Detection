@@ -190,9 +190,7 @@ identify individual blobs in the heatmap. I then assumed each blob corresponded
 to a vehicle. I constructed bounding boxes to cover the area of each blob
 detected.
 
-### Some example here
-
-![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.07.08.png)
+ 
 
 ### **FALSE POSITIVES**
 
@@ -396,7 +394,7 @@ discard the first box:
 
 ![](write_md_images/problems%20with%20labels2.png)
 
-In the function **draw_labeled_bboxes**  i have added the **min** and **max**
+In the function **draw_labeled_bboxes** i have added the **min** and **max**
 value of the heatmap single box value:
 
  
@@ -409,7 +407,7 @@ value of the heatmap single box value:
 
  
 
-Here I am getting for each **labelled box**  his average and his maximum value.
+Here I am getting for each **labelled box** his average and his maximum value.
 
 I want do discard boxes without centroids, for example where the average ==
 maximum value. The second box in this example
