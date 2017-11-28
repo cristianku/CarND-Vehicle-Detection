@@ -376,11 +376,11 @@ Look at this example:
 If the threshold would be higher, it would ending with a too small box in
 respect to the entire car.
 
-![](write_md_images/problems with labels2.png)
+![](write_md_images/problems%20with%20labels2.png)
 
-![](write_md_images/problem with labels 1.png)
+![](write_md_images/problem%20with%20labels%201.png)
 
-![](write_md_images/problem with labels3.png)
+![](write_md_images/problem%20with%20labels3.png)
 
  
 
@@ -394,9 +394,9 @@ point inside of the box doesnt have a centroid with a higher value .
 If you look again at these image you can intuitively understand that we can
 discard the first box:
 
-![](write_md_images/problems with labels2.png)
+![](write_md_images/problems%20with%20labels2.png)
 
-In the function **draw_labeled_bboxes ** i have added the **min** and **max**
+In the function **draw_labeled_bboxes**  i have added the **min** and **max**
 value of the heatmap single box value:
 
  
@@ -409,9 +409,21 @@ value of the heatmap single box value:
 
  
 
-Here I am getting for each **labelled box ** his average and his maximum value.
+Here I am getting for each **labelled box**  his average and his maximum value.
 
 I want do discard boxes without centroids, for example where the average ==
 maximum value. The second box in this example
 
-![](write_md_images/centroids identif.png)
+![](write_md_images/centroids%20identif.png)
+
+And then I can **exclude** where the max == average or I can calculate a ratio :
+
+ 
+
+>   ratio = box_max / box_average
+
+>   if self.hot_boxes_discard(bbox) == True or \\
+
+>   ( ratio \< 1.3 and self.discard_without_centroids):
+
+>   **—\> discard the box with low difference between max and average**
