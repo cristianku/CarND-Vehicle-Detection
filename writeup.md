@@ -35,9 +35,9 @@ Here what I am trying to avoid is to detect cars on the other part of the road :
 
 ![](write_md_images/image%20masking.png)
 
-![](write_md_images/sliding masked windows.png)
+![](write_md_images/sliding%20masked%20windows.png)
 
-![](write_md_images/check in get windows.png)
+![](write_md_images/check%20in%20get%20windows.png)
 
  
 
@@ -360,3 +360,58 @@ as I have done for the lane line. Here obiously there is the problem to identify
 the end of the asphalt both on left and right side, because in the lane line
 finding region masking we had just to mask the region in front of the center
 camera.
+
+ 
+
+### Problem with **labels** and **threshold**
+
+There is not a perfect combination of threshold.
+
+If its too low, it captures a lot of false window positives, if it is too high,
+it capture only the important real window, but it shrinks the dimension of the
+window too small in respect to the entire car.
+
+Look at this example:
+
+If the threshold would be higher, it would ending with a too small box in
+respect to the entire car.
+
+![](write_md_images/problems with labels2.png)
+
+![](write_md_images/problem with labels 1.png)
+
+![](write_md_images/problem with labels3.png)
+
+ 
+
+Solution:
+
+I am thinking to do a two-step thresholding.
+
+The first one with low-threshold level, and then filter the boxes for which the
+point inside of the box doesnt have a centroid with a higher value .
+
+If you look again at these image you can intuitively understand that we can
+discard the first box:
+
+![](write_md_images/problems with labels2.png)
+
+In the function **draw_labeled_bboxes ** i have added the **min** and **max**
+value of the heatmap single box value:
+
+ 
+
+>   def draw_labeled_bboxes(self):
+
+>   ………………….
+
+>   **bbox_heatmap_values = self.heatmap[bbox[1]:bbox[3], bbox[0]:bbox[2] ]**
+
+ 
+
+Here I am getting for each **labelled box ** his average and his maximum value.
+
+I want do discard boxes without centroids, for example where the average ==
+maximum value. The second box in this example
+
+![](write_md_images/centroids identif.png)
