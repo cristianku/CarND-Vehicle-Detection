@@ -29,13 +29,17 @@
 
  
 
-### **Image masking**
+### **Image masking + masked windows**
 
 Here what I am trying to avoid is to detect cars on the other part of the road :
 
-![](write_md_images/image masking.png)
+![](write_md_images/image%20masking.png)
 
-![](write_md_images/discard out of area of interests.png)
+![](write_md_images/sliding masked windows.png)
+
+![](write_md_images/check in get windows.png)
+
+ 
 
 ### **Features extraction**
 
@@ -205,7 +209,7 @@ I have implemented two further techniques:
 that are not likely to contain a car **( for example too small for a certain
 portion of the screen )**
 
-![](write_md_images/discard rules.png)
+![](write_md_images/discard%20rules.png)
 
 3- Choosing the best Feature extractor / classifier —\> **Convolutional Neural
 Network**
@@ -326,7 +330,7 @@ a car.**
 
 I have experimented different classifiers.
 
-I have expected the **CNN** to be the best, both performance and accuracy,  but
+I have expected the **CNN** to be the best, both performance and accuracy, but
 sometimes happens something like this:
 
 ![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.00.00.png)

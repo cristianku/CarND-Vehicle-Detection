@@ -8,7 +8,7 @@ a video
 
 Project output:
 
--   **project_video_output_cnn.mp4 ** using Conv Net
+-   **project_video_output_cnn.mp4**  using Conv Net
 
 -   **project_video_output_hog_nn.mp4** using Neural Network
 
@@ -50,6 +50,23 @@ and
 database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
 
 [KITTI vision benchmark suite](http://www.cvlibs.net/datasets/kitti/)
+
+ 
+
+### **Dependencies**
+
+**Anaconda environment:**
+
+-   [CarND Term1 Starter
+    Kit](https://github.com/udacity/CarND-Term1-Starter-Kit)
+
+    The lab enviroment can be created with CarND Term1 Starter Kit.
+    Click [here](https://github.com/udacity/CarND-Term1-Starter-Kit/blob/master/README.md) for
+    the details.
+
+     
+
+**shapely** - pip install shapely
 
  
 
