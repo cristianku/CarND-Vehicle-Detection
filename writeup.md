@@ -172,9 +172,15 @@ of car , and not only the entire car **as a car.**
 Now, having a classifier that tells if in a portion of image there is or not a
 car, we need do slide windows of **different dimensions** on the image:
 
- 
+I have create different windows, with different dimensions:
 
-![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.12.35%20copy%202.png)
+![](write_md_images/window1.png)
+
+![](write_md_images/window2.png)
+
+![](write_md_images/window3.png)
+
+![](write_md_images/window4.png)
 
 Having these list of windows, for each one i am applying the classifier to
 recognize if the windows contains of not a part of a car
@@ -196,10 +202,21 @@ detected.
 
 I have implemented two further techniques:
 
-1 - the averaging on the 3- previous frames, and discard of the boxes that are
-**“ too much different"**
+1 - **WEIGHTED AVERAGE **on the 3- previous frames, and discard of the boxes
+that are **“ too different"**
 
 ![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.41.06.png)
+
+ 
+
+For more information about how the weighted average has been calculated , you
+can look into this method:
+
+![](write_md_images/Screen Shot 2017-11-29 at 11.06.27.png)
+
+![](write_md_images/Screen Shot 2017-11-29 at 11.05.45.png)
+
+ 
 
  
 
@@ -341,11 +358,7 @@ its a car” , **having a cropped image window with only some parts of the car**
 But this gives too many boxes recognized as correct around the car, and the
 heatmap is making a box a little bit **too bigger**
 
-I have experimented different thresholds in the heatmap, and I have ended
-calculating the average of the non-zero elements , and moltiplying this result
-for a factor ( each classifier has a different “tuned factor” )
-
- 
+I have experimented different thresholds in the heatmap
 
 SOmething that can be also further better implemented is the discard routine,
 where i have tried to defined some basics rule to discard boxes that are
