@@ -8,13 +8,13 @@ a video
 
 Project output:
 
--   **project_video_output_cnn.mp4**  using Conv Net
+-   **project_video_output_cnn.mp4** using Conv Net
 
 -   **project_video_output_hog_nn.mp4** using Neural Network
 
 -   **project_video_output_svm.mp4** using Support Vector Machine
 
--    
+ 
 
 Check also the detailed **writeup.md** of the project.
 
@@ -30,13 +30,13 @@ Check also the detailed **writeup.md** of the project.
 
 -   Classifier used : SVM, Neural Network
 
--   Optionally i used also a **Convolutional Neural Network** instead of the
+-   Experimental use of  **Convolutional Neural Network** instead of the
     **Histogram of Oriented Gradients**
 
 -   **Sliding-window technique** and use your trained classifier to search for
     vehicles in images.
 
--   Estimate a bounding box for vehicles detected.
+-   Estimate a bounding box for vehicles detection.
 
  
 
@@ -44,7 +44,7 @@ The training data used to train the classifiers, for
 [vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/vehicles.zip)
 and
 [non-vehicle](https://s3.amazonaws.com/udacity-sdc/Vehicle_Tracking/non-vehicles.zip)
-:
+comes from:
 
 [GTI vehicle image
 database](http://www.gti.ssr.upm.es/data/Vehicle_database.html)
