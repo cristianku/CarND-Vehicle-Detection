@@ -30,7 +30,7 @@ Check also the detailed **writeup.md** of the project.
 
 -   Classifier used : SVM, Neural Network
 
--   Experimental use of  **Convolutional Neural Network** instead of the
+-   Experimental use of **Convolutional Neural Network** instead of the
     **Histogram of Oriented Gradients**
 
 -   **Sliding-window technique** and use your trained classifier to search for
@@ -129,9 +129,9 @@ scaling.
 
  
 
- 
+**car_features.pkl ** car_features saved to pickle file
 
- 
+**notcar_features.pkl **notcar_features saved to pickle file
 
  
 
