@@ -202,7 +202,7 @@ detected.
 
 I have implemented two further techniques:
 
-1 - **WEIGHTED AVERAGE **on the 3- previous frames, and discard of the boxes
+1 - **WEIGHTED AVERAGE** on the 3- previous frames, and discard of the boxes
 that are **“ too different"**
 
 ![](write_md_images/Screen%20Shot%202017-11-26%20at%2020.41.06.png)
@@ -212,9 +212,9 @@ that are **“ too different"**
 For more information about how the weighted average has been calculated , you
 can look into this method:
 
-![](write_md_images/Screen Shot 2017-11-29 at 11.06.27.png)
+![](write_md_images/Screen%20Shot%202017-11-29%20at%2011.06.27.png)
 
-![](write_md_images/Screen Shot 2017-11-29 at 11.05.45.png)
+![](write_md_images/Screen%20Shot%202017-11-29%20at%2011.05.45.png)
 
  
 
@@ -229,7 +229,14 @@ portion of the screen )**
 3- Choosing the best Feature extractor / classifier —\> **Convolutional Neural
 Network**
 
- 
+###  
+
+### **SORTING THE LABELS:**
+
+Important step, is to sort the labels, expecially when averaging, t**o avoid to
+average inverted label ( one with an other )**
+
+![](write_md_images/SORTING LABELS.png)
 
 ### **Comparison between the 3 different classifier:**
 
